@@ -13,7 +13,7 @@
 
 .gallery-page__content {
     padding-top: clamp(3rem, 10vw, 10rem);
-    padding-bottom: 25vw;
+    padding-bottom: 10vw;
     background: linear-gradient(
             rgba(0,0,0, 0) 0%,
             rgba(0,0,0, 0.5) 2%,
