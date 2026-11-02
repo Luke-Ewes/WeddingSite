@@ -1,0 +1,16 @@
+.footer {
+    box-sizing: border-box;
+    width: min(35% - 2rem, 850px);
+    padding: 1rem 0;
+    margin: 0 auto;
+
+    justify-items: center;
+    align-items: center;
+
+    border-top: 2px solid white;
+}
+
+.footer-logo {
+    width: clamp(64px, 10vw, 112px);
+    height: auto;
+}

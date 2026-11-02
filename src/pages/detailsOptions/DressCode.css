@@ -1,0 +1,55 @@
+.dress-code h3{
+    margin: 0 0 1.5rem;
+    font-size: 2rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+.dress-code p {
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.dress-code__colors{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.dress-code__color{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.dress-code__color-red{
+    background-color: var(--color-red);
+}
+
+.dress-code__color-lightpink{
+    background-color: var(--color-pink);
+}
+
+.dress-code__color-lightblue{
+    background-color: var(--color-lightblue);
+}
+
+.dress-code__color-darkblue{
+    background-color: var(--color-darkblue);
+}
+
+.dress-code__color-salmonpink{
+    background-color: var(--color-brightred);
+}
+@media (max-width: 600px) {
+    .dress-code h3 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .dress-code p{
+        font-size: 1rem;
+    }
+}

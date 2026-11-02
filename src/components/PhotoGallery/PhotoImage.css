@@ -1,0 +1,21 @@
+.photo-gallery__image-container {
+    width: 100%;
+    background-color: var(--color-surface, #e5e5e5);
+    border-radius: 8px;
+    transition:
+            opacity 500ms ease;
+}
+
+.photo-gallery__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    transition:
+            opacity 500ms ease;
+}
+
+.photo-gallery__image-container--loaded .photo-gallery__image {
+    opacity: 1;
+}
+

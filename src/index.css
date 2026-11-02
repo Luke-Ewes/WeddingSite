@@ -1,0 +1,86 @@
+:root {
+  --color-darkblue: #004AAD;
+
+  --color-lightblue: #C2DCFF;
+  --color-lightblue-hover: #759bc9;
+
+  --color-red: #ff0000;
+
+  --color-brightred: #FF9999;
+
+  --color-pink: #FFD6D6;
+
+  --color-surface: rgb(0 0 0 / 0.5);
+  --color-surface-hover: rgb(0 0 0 / 0.75);
+}
+
+#root {
+  max-width: 100%;
+  margin: 0;
+  text-align: center;
+  min-height: 100lvh;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: none !important;
+  background-color: #10151c;
+  position: relative;
+  color: var(--color-lightblue);
+
+  font-family: "Cardo", serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  min-height: 100vh;
+  height: 100lvh !important;
+
+  background:
+          linear-gradient(
+                  rgba(0, 0, 0, 1) 0%,
+                  rgba(0, 0, 0, 0.43) 16%
+          ),
+          url("/images/background/200118.webp");
+
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+
+  z-index: -1;
+  pointer-events: none;
+}
+
+@font-face {
+  font-family: "Cardo";
+  src: url("/fonts/Cardo/Cardo-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fleur De Leah";
+  src: url("/fonts/Fleur_De_Leah/FleurDeLeah-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+#root {
+  min-height: 100lvh;
+}
+
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100lvh;
+}
+
+.app-layout__main {
+  flex: 1;
+}
+

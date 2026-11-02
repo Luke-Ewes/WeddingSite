@@ -1,0 +1,29 @@
+
+.not-found-nav {
+    display: block;
+    margin: 5rem auto;
+    text-decoration: none;
+
+    width: 200px;
+
+    padding: 1rem;
+    border: 2px solid var(--color-lightblue);
+    background-color: var(--color-lightblue);
+
+    border-radius: 15px;
+
+    color: black;
+
+    transition: transform 150ms ease,
+                padding-top 150ms ease,
+                padding-bottom 150ms ease,
+                padding-right  150ms ease,
+                padding-left 150ms ease;
+}
+
+.not-found-nav:hover {
+    background-color: var(--color-lightblue-hover);
+
+    padding: 1.3rem;
+    transform: translateY(-5px);
+}
