@@ -20,6 +20,14 @@ export default {
             });
         }
 
+        // Public background image for the login page
+        if (
+            url.pathname === "/images/background/200118.webp" &&
+            (request.method === "GET" || request.method === "HEAD")
+        ) {
+            return env.ASSETS.fetch(request);
+        }
+
         if (url.pathname === "/api/login") {
             if (request.method !== "POST") {
                 return renderLoginPage("/");
@@ -140,6 +148,30 @@ function renderLoginPage(next: string, invalid = false): Response {
                     justify-content: center;
                     align-items: center;
                     font-family: Arial, sans-serif;
+                    position: relative;
+                    isolation: isolate;
+                }
+                
+                body::before {
+                    content: "";
+                    position: fixed;
+                    inset: 0;
+                    min-height: 100vh;
+                    height: 100lvh;
+                    
+                    background:
+                        linear-gradient(
+                            rgba(0, 0, 0, 1) 0%,
+                            rgba(0, 0, 0, 0.43) 16%
+                        ),
+                        url("/images/background/200118.webp");
+                            
+                    background-size: cover;
+                    background-position: top center;
+                    background-repeat: no-repeat;
+                
+                    z-index: -1;
+                    pointer-events: none;
                 }
 
                 .password-gate {
@@ -243,8 +275,7 @@ function renderLoginPage(next: string, invalid = false): Response {
             "Content-Type": "text/html; charset=utf-8",
             "Cache-Control": "no-store",
             "X-Content-Type-Options": "nosniff",
-            "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'",
-        },
+            "Content-Security-Policy": "default-src 'none'; img-src 'self'; style-src 'unsafe-inline'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'",        },
     });
 }
 
