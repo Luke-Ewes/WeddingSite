@@ -121,59 +121,118 @@ function renderLoginPage(next: string, invalid = false): Response {
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <title>Welkom!</title>
             <meta name="robots" content="noindex,nofollow">
+
             <style>
-                * { box-sizing: border-box; }
+                :root {
+                    --color-lightblue: #C2DCFF;
+                    --color-lightblue-hover: #B2D2FA;
+                    --color-surface-hover: #FFF0F0;
+                }
+
+                * {
+                    box-sizing: border-box;
+                }
+
                 body {
                     margin: 0;
                     min-height: 100vh;
                     display: flex;
-                    align-items: center;
                     justify-content: center;
-                    background: #f5f5f5;
+                    align-items: center;
                     font-family: Arial, sans-serif;
                 }
-                form {
-                    width: min(90%, 400px);
-                    padding: 40px;
-                    background: white;
-                    border-radius: 12px;
-                    text-align: center;
-                    box-shadow: 0 4px 20px #00000010;
-                }
-                h1 { margin-top: 0; }
-                input, button {
+
+                .password-gate {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 24px;
                     width: 100%;
-                    padding: 14px;
-                    margin-top: 16px;
-                    border-radius: 6px;
-                    font-size: 16px;
                 }
-                input { border: 1px solid #ccc; }
-                button {
-                    border: none;
-                    background: #004AAD;
-                    color: white;
+
+                .password-gate__form {
+                    width: 100%;
+                    max-width: 400px;
+                    text-align: center;
+                }
+
+                .password-gate__form input {
+                    width: 100%;
+                    padding: 12px;
+
+                    border: 3px solid var(--color-lightblue);
+                    border-radius: 12px;
+                }
+
+                .password-gate__form input:focus-visible {
+                    outline: none;
+                }
+
+                .password-gate__form button {
+                    width: 50%;
+                    padding: 12px;
                     cursor: pointer;
+
+                    background-color: var(--color-lightblue);
+                    border: 3px solid var(--color-lightblue);
+                    border-radius: 12px;
+
+                    margin-top: 16px;
                 }
-                .error { color: #c62828; }
+
+                .password-gate__form button:hover {
+                    background-color: var(--color-lightblue-hover);
+                }
+
+                .password-gate__error {
+                    color: #c62828;
+
+                    width: 70%;
+                    margin: 0 auto 1rem;
+
+                    background-color: var(--color-surface-hover);
+                    border: 2px solid var(--color-lightblue);
+                    border-radius: 12px;
+
+                    padding: 1rem;
+                }
             </style>
         </head>
+
         <body>
-            <form method="POST" action="/api/login">
-                <h1>Welkom!</h1>
-                <p>Voer het wachtwoord in om onze website te bekijken.</p>
-                <input type="hidden" name="next" value="${safeNext}">
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Wachtwoord"
-                    autocomplete="current-password"
-                    required
-                    autofocus
+            <div class="password-gate">
+                <form
+                    class="password-gate__form"
+                    method="POST"
+                    action="/api/login"
                 >
-                ${invalid ? '<p class="error">Het wachtwoord is onjuist.</p>' : ""}
-                <button type="submit">Bekijk website</button>
-            </form>
+                    <h1>Welkom!</h1>
+                    <p>Voer het wachtwoord in om onze website te bekijken</p>
+
+                    <input
+                        type="hidden"
+                        name="next"
+                        value="${safeNext}"
+                    >
+
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Wachtwoord"
+                        autocomplete="current-password"
+                        required
+                        autofocus
+                    >
+
+                    ${invalid
+        ? '<p class="password-gate__error">Het ingevoerde wachtwoord is onjuist</p>'
+        : ""
+    }
+                    <button type="submit">
+                        Bekijk website
+                    </button>
+                </form>
+            </div>
         </body>
         </html>
     `;
