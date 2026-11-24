@@ -132,24 +132,57 @@ function renderLoginPage(next: string, invalid = false): Response {
 
             <style>
                 :root {
+                    --color-darkblue: #004AAD;
+                
                     --color-lightblue: #C2DCFF;
-                    --color-lightblue-hover: #B2D2FA;
-                    --color-surface-hover: #FFF0F0;
+                    --color-lightblue-hover: #759bc9;
+                
+                    --color-red: #ff0000;
+                    --color-brightred: #FF9999;
+                
+                    --color-pink: #FFD6D6;
+                
+                    --color-surface: rgb(0 0 0 / 0.5);
+                    --color-surface-hover: rgb(0 0 0 / 0.75);
                 }
-
+                
+                @font-face {
+                    font-family: "Cardo";
+                    src: url("/fonts/Cardo/Cardo-Regular.ttf") format("truetype");
+                    font-weight: 400;
+                    font-style: normal;
+                    font-display: swap;
+                }
+                
+                @font-face {
+                    font-family: "Fleur De Leah";
+                    src: url("/fonts/Fleur_De_Leah/FleurDeLeah-Regular.ttf") format("truetype");
+                    font-weight: 400;
+                    font-style: normal;
+                    font-display: swap;
+                }
+                
                 * {
                     box-sizing: border-box;
                 }
-
+                
                 body {
                     margin: 0;
                     min-height: 100vh;
+                    height: 100lvh;
+                
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    font-family: Arial, sans-serif;
+                
+                    background: none !important;
+                    background-color: #10151c;
+                
                     position: relative;
                     isolation: isolate;
+                
+                    color: var(--color-lightblue);
+                    font-family: "Cardo", serif;
                 }
                 
                 body::before {
@@ -157,15 +190,15 @@ function renderLoginPage(next: string, invalid = false): Response {
                     position: fixed;
                     inset: 0;
                     min-height: 100vh;
-                    height: 100lvh;
-                    
+                    height: 100lvh !important;
+                
                     background:
                         linear-gradient(
                             rgba(0, 0, 0, 1) 0%,
                             rgba(0, 0, 0, 0.43) 16%
                         ),
                         url("/images/background/200118.webp");
-                            
+                
                     background-size: cover;
                     background-position: top center;
                     background-repeat: no-repeat;
@@ -173,7 +206,7 @@ function renderLoginPage(next: string, invalid = false): Response {
                     z-index: -1;
                     pointer-events: none;
                 }
-
+                
                 .password-gate {
                     display: flex;
                     justify-content: center;
@@ -181,51 +214,53 @@ function renderLoginPage(next: string, invalid = false): Response {
                     padding: 24px;
                     width: 100%;
                 }
-
+                
                 .password-gate__form {
                     width: 100%;
                     max-width: 400px;
                     text-align: center;
                 }
-
+                
                 .password-gate__form input {
                     width: 100%;
                     padding: 12px;
-
+                
                     border: 3px solid var(--color-lightblue);
                     border-radius: 12px;
                 }
-
+                
                 .password-gate__form input:focus-visible {
                     outline: none;
                 }
-
+                
                 .password-gate__form button {
                     width: 50%;
                     padding: 12px;
                     cursor: pointer;
-
+                
                     background-color: var(--color-lightblue);
                     border: 3px solid var(--color-lightblue);
+                
                     border-radius: 12px;
-
                     margin-top: 16px;
+                
+                    font-family: inherit;
                 }
-
+                
                 .password-gate__form button:hover {
                     background-color: var(--color-lightblue-hover);
                 }
-
+                
                 .password-gate__error {
-                    color: #c62828;
-
-                    width: 70%;
-                    margin: 0 auto 1rem;
-
+                    color: var(--color-brightred);
+                
+                    width: 80%;
+                    margin: 2rem auto 1rem;
+                
                     background-color: var(--color-surface-hover);
                     border: 2px solid var(--color-lightblue);
                     border-radius: 12px;
-
+                
                     padding: 1rem;
                 }
             </style>
